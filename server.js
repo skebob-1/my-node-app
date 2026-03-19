@@ -12,69 +12,66 @@ const server = http.createServer((req, res) => {
                 body {
                     margin: 0;
                     height: 100vh;
-                    background: #1a1a2e;
-                    font-family: 'Arial', sans-serif;
+                    background: #000;
+                    font-family: 'Courier New', monospace;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    perspective: 1000px;
-                }
-                
-                .cube {
-                    width: 200px;
-                    height: 200px;
                     position: relative;
-                    transform-style: preserve-3d;
-                    animation: rotate 10s infinite linear;
                 }
                 
-                .face {
+                .matrix-bg {
                     position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(102, 126, 234, 0.9);
-                    border: 2px solid #fff;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    color: white;
-                    font-size: 0.8em;
-                    text-align: center;
-                    padding: 10px;
-                    box-sizing: border-box;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(rgba(0,255,0,0.1) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(0,255,0,0.1) 1px, transparent 1px);
+                    background-size: 50px 50px;
+                    animation: move 10s linear infinite;
                 }
                 
-                .front { transform: translateZ(100px); }
-                .back { transform: rotateY(180deg) translateZ(100px); }
-                .right { transform: rotateY(90deg) translateZ(100px); }
-                .left { transform: rotateY(-90deg) translateZ(100px); }
-                .top { transform: rotateX(90deg) translateZ(100px); }
-                .bottom { transform: rotateX(-90deg) translateZ(100px); }
-                
-                @keyframes rotate {
-                    0% { transform: rotateX(0) rotateY(0); }
-                    100% { transform: rotateX(360deg) rotateY(360deg); }
+                .content {
+                    position: relative;
+                    z-index: 1;
+                    background: rgba(0,0,0,0.8);
+                    padding: 3rem 5rem;
+                    border: 2px solid #0f0;
+                    box-shadow: 0 0 20px #0f0;
                 }
                 
-                .text {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    color: white;
-                    font-size: 2em;
-                    text-shadow: 0 0 20px rgba(102,126,234,0.5);
+                h1 {
+                    color: #0f0;
+                    font-size: 2.5em;
+                    text-shadow: 0 0 10px #0f0;
+                    margin: 0;
+                }
+                
+                .cursor {
+                    display: inline-block;
+                    width: 10px;
+                    height: 1.2em;
+                    background: #0f0;
+                    margin-left: 5px;
+                    animation: blink 1s infinite;
+                }
+                
+                @keyframes move {
+                    0% { transform: translate(0, 0); }
+                    100% { transform: translate(50px, 50px); }
+                }
+                
+                @keyframes blink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
                 }
             </style>
         </head>
         <body>
-            <div class="cube">
-                <div class="face front">я изучаю</div>
-                <div class="face back">NODE.JS</div>
-                <div class="face right">в</div>
-                <div class="face left">JAVASCRIPT</div>
-                <div class="face top">я изучаю</div>
-                <div class="face bottom">NODE.JS</div>
+            <div class="matrix-bg"></div>
+            <div class="content">
+                <h1>> я изучаю NODE.JS в JAVASCRIPT<span class="cursor"></span></h1>
             </div>
         </body>
         </html>
