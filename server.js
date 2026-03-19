@@ -12,66 +12,52 @@ const server = http.createServer((req, res) => {
                 body {
                     margin: 0;
                     height: 100vh;
-                    background: #000;
-                    font-family: 'Courier New', monospace;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    font-family: 'Arial', sans-serif;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     position: relative;
+                    overflow: hidden;
                 }
                 
-                .matrix-bg {
+                body::before {
+                    content: '';
                     position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: linear-gradient(rgba(0,255,0,0.1) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(0,255,0,0.1) 1px, transparent 1px);
-                    background-size: 50px 50px;
-                    animation: move 10s linear infinite;
+                    width: 200%;
+                    height: 200%;
+                    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+                    animation: rotate 20s linear infinite;
                 }
                 
-                .content {
+                .text-container {
+                    background: rgba(255, 255, 255, 0.95);
+                    padding: 3rem 4rem;
+                    border-radius: 20px;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                    text-align: center;
                     position: relative;
                     z-index: 1;
-                    background: rgba(0,0,0,0.8);
-                    padding: 3rem 5rem;
-                    border: 2px solid #0f0;
-                    box-shadow: 0 0 20px #0f0;
+                    backdrop-filter: blur(10px);
                 }
                 
                 h1 {
-                    color: #0f0;
-                    font-size: 2.5em;
-                    text-shadow: 0 0 10px #0f0;
+                    font-size: 3em;
+                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
                     margin: 0;
                 }
                 
-                .cursor {
-                    display: inline-block;
-                    width: 10px;
-                    height: 1.2em;
-                    background: #0f0;
-                    margin-left: 5px;
-                    animation: blink 1s infinite;
-                }
-                
-                @keyframes move {
-                    0% { transform: translate(0, 0); }
-                    100% { transform: translate(50px, 50px); }
-                }
-                
-                @keyframes blink {
-                    0%, 100% { opacity: 1; }
-                    50% { opacity: 0; }
+                @keyframes rotate {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
                 }
             </style>
         </head>
         <body>
-            <div class="matrix-bg"></div>
-            <div class="content">
-                <h1>> я изучаю NODE.JS в JAVASCRIPT<span class="cursor"></span></h1>
+            <div class="text-container">
+                <h1>я изучаю NODE.JS в JAVASCRIPT</h1>
             </div>
         </body>
         </html>
