@@ -12,41 +12,22 @@ const server = http.createServer((req, res) => {
                 body {
                     margin: 0;
                     height: 100vh;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    background: linear-gradient(135deg, #00b4db, #0083b0);
                     font-family: 'Arial', sans-serif;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                 }
                 
-                .container {
-                    text-align: center;
-                }
-                
                 h1 {
                     color: white;
                     font-size: 3.5em;
-                    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-                    margin: 0;
-                    animation: fadeIn 1s ease-in;
-                }
-                
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                        transform: scale(0.9);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: scale(1);
-                    }
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
                 }
             </style>
         </head>
         <body>
-            <div class="container">
-                <h1>Я изучаю NODE.JS в JAVASCRIPT!</h1>
-            </div>
+            <h1>Я изучаю NODE.JS в JAVASCRIPT!</h1>
         </body>
         </html>
     `);
