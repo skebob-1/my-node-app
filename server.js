@@ -12,52 +12,54 @@ const server = http.createServer((req, res) => {
                 body {
                     margin: 0;
                     height: 100vh;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    font-family: 'Arial', sans-serif;
+                    background: #0a0a0a;
+                    font-family: 'Courier New', monospace;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    position: relative;
                     overflow: hidden;
                 }
                 
-                body::before {
-                    content: '';
-                    position: absolute;
-                    width: 200%;
-                    height: 200%;
-                    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
-                    animation: rotate 20s linear infinite;
-                }
-                
-                .text-container {
-                    background: rgba(255, 255, 255, 0.95);
-                    padding: 3rem 4rem;
-                    border-radius: 20px;
-                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                .container {
                     text-align: center;
-                    position: relative;
-                    z-index: 1;
-                    backdrop-filter: blur(10px);
+                    animation: glitch 1s infinite;
                 }
                 
                 h1 {
-                    font-size: 3em;
-                    background: linear-gradient(135deg, #667eea, #764ba2);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    margin: 0;
+                    font-size: 4em;
+                    color: #0ff;
+                    text-shadow: 
+                        -2px -2px 0 #f0f,
+                        2px 2px 0 #ff0;
+                    letter-spacing: 5px;
                 }
                 
-                @keyframes rotate {
-                    from { transform: rotate(0deg); }
-                    to { transform: rotate(360deg); }
+                .subtitle {
+                    color: #fff;
+                    font-size: 1.2em;
+                    border-right: 2px solid #0ff;
+                    animation: blink 1s infinite;
+                }
+                
+                @keyframes glitch {
+                    0% { transform: translate(0); }
+                    20% { transform: translate(-2px, 2px); }
+                    40% { transform: translate(-2px, -2px); }
+                    60% { transform: translate(2px, 2px); }
+                    80% { transform: translate(2px, -2px); }
+                    100% { transform: translate(0); }
+                }
+                
+                @keyframes blink {
+                    0%, 100% { border-color: transparent; }
+                    50% { border-color: #0ff; }
                 }
             </style>
         </head>
         <body>
-            <div class="text-container">
-                <h1>я изучаю NODE.JS в JAVASCRIPT</h1>
+            <div class="container">
+                <h1>Я ИЗУЧАЮ NODE.JS</h1>
+                <div class="subtitle">в JAVASCRIPT</div>
             </div>
         </body>
         </html>
