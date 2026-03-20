@@ -12,66 +12,40 @@ const server = http.createServer((req, res) => {
                 body {
                     margin: 0;
                     height: 100vh;
-                    background: #000;
-                    font-family: 'Courier New', monospace;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    font-family: 'Arial', sans-serif;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    position: relative;
                 }
                 
-                .matrix-bg {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: linear-gradient(rgba(0,255,0,0.1) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(0,255,0,0.1) 1px, transparent 1px);
-                    background-size: 50px 50px;
-                    animation: move 10s linear infinite;
-                }
-                
-                .content {
-                    position: relative;
-                    z-index: 1;
-                    background: rgba(0,0,0,0.8);
-                    padding: 3rem 5rem;
-                    border: 2px solid #0f0;
-                    box-shadow: 0 0 20px #0f0;
+                .container {
+                    text-align: center;
                 }
                 
                 h1 {
-                    color: #0f0;
-                    font-size: 2.5em;
-                    text-shadow: 0 0 10px #0f0;
+                    color: white;
+                    font-size: 3.5em;
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
                     margin: 0;
+                    animation: fadeIn 1s ease-in;
                 }
                 
-                .cursor {
-                    display: inline-block;
-                    width: 10px;
-                    height: 1.2em;
-                    background: #0f0;
-                    margin-left: 5px;
-                    animation: blink 1s infinite;
-                }
-                
-                @keyframes move {
-                    0% { transform: translate(0, 0); }
-                    100% { transform: translate(50px, 50px); }
-                }
-                
-                @keyframes blink {
-                    0%, 100% { opacity: 1; }
-                    50% { opacity: 0; }
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: scale(0.9);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
                 }
             </style>
         </head>
         <body>
-            <div class="matrix-bg"></div>
-            <div class="content">
-                <h1>> я изучаю NODE.JS в JAVASCRIPT<span class="cursor"></span></h1>
+            <div class="container">
+                <h1>Я изучаю NODE.JS в JAVASCRIPT!</h1>
             </div>
         </body>
         </html>
