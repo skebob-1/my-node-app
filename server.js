@@ -12,54 +12,70 @@ const server = http.createServer((req, res) => {
                 body {
                     margin: 0;
                     height: 100vh;
-                    background: #0a0a0a;
-                    font-family: 'Courier New', monospace;
+                    background: #f5f5f5;
+                    font-family: 'Segoe UI', sans-serif;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    overflow: hidden;
                 }
                 
-                .container {
+                .card {
+                    background: white;
+                    padding: 3rem 5rem;
+                    border-radius: 10px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
                     text-align: center;
-                    animation: glitch 1s infinite;
+                    animation: slideUp 0.5s ease;
                 }
                 
                 h1 {
-                    font-size: 4em;
-                    color: #0ff;
-                    text-shadow: 
-                        -2px -2px 0 #f0f,
-                        2px 2px 0 #ff0;
-                    letter-spacing: 5px;
+                    font-size: 2.5em;
+                    color: #333;
+                    margin: 0;
                 }
                 
-                .subtitle {
-                    color: #fff;
-                    font-size: 1.2em;
-                    border-right: 2px solid #0ff;
-                    animation: blink 1s infinite;
+                .dot {
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    background: #667eea;
+                    border-radius: 50%;
+                    margin: 0 5px;
+                    animation: bounce 1s infinite;
                 }
                 
-                @keyframes glitch {
-                    0% { transform: translate(0); }
-                    20% { transform: translate(-2px, 2px); }
-                    40% { transform: translate(-2px, -2px); }
-                    60% { transform: translate(2px, 2px); }
-                    80% { transform: translate(2px, -2px); }
-                    100% { transform: translate(0); }
+                .dots {
+                    margin-top: 20px;
                 }
                 
-                @keyframes blink {
-                    0%, 100% { border-color: transparent; }
-                    50% { border-color: #0ff; }
+                .dot:nth-child(2) { animation-delay: 0.2s; }
+                .dot:nth-child(3) { animation-delay: 0.4s; }
+                
+                @keyframes slideUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                @keyframes bounce {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-10px); }
                 }
             </style>
         </head>
         <body>
-            <div class="container">
-                <h1>Я ИЗУЧАЮ NODE.JS</h1>
-                <div class="subtitle">в JAVASCRIPT</div>
+            <div class="card">
+                <h1>я изучаю NODE.JS в JAVASCRIPT</h1>
+                <div class="dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
         </body>
         </html>
