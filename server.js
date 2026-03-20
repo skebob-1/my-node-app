@@ -12,70 +12,52 @@ const server = http.createServer((req, res) => {
                 body {
                     margin: 0;
                     height: 100vh;
-                    background: #f5f5f5;
-                    font-family: 'Segoe UI', sans-serif;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    font-family: 'Arial', sans-serif;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    position: relative;
+                    overflow: hidden;
                 }
                 
-                .card {
-                    background: white;
-                    padding: 3rem 5rem;
-                    border-radius: 10px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                body::before {
+                    content: '';
+                    position: absolute;
+                    width: 200%;
+                    height: 200%;
+                    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+                    animation: rotate 20s linear infinite;
+                }
+                
+                .text-container {
+                    background: rgba(255, 255, 255, 0.95);
+                    padding: 3rem 4rem;
+                    border-radius: 20px;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
                     text-align: center;
-                    animation: slideUp 0.5s ease;
+                    position: relative;
+                    z-index: 1;
+                    backdrop-filter: blur(10px);
                 }
                 
                 h1 {
-                    font-size: 2.5em;
-                    color: #333;
+                    font-size: 3em;
+                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
                     margin: 0;
                 }
                 
-                .dot {
-                    display: inline-block;
-                    width: 10px;
-                    height: 10px;
-                    background: #667eea;
-                    border-radius: 50%;
-                    margin: 0 5px;
-                    animation: bounce 1s infinite;
-                }
-                
-                .dots {
-                    margin-top: 20px;
-                }
-                
-                .dot:nth-child(2) { animation-delay: 0.2s; }
-                .dot:nth-child(3) { animation-delay: 0.4s; }
-                
-                @keyframes slideUp {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-                
-                @keyframes bounce {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-10px); }
+                @keyframes rotate {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
                 }
             </style>
         </head>
         <body>
-            <div class="card">
+            <div class="text-container">
                 <h1>я изучаю NODE.JS в JAVASCRIPT</h1>
-                <div class="dots">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
             </div>
         </body>
         </html>
