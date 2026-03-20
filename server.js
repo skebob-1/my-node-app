@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
                 body {
                     margin: 0;
                     height: 100vh;
-                    background: linear-gradient(to right, #ff512f, #dd2476);
+                    background: linear-gradient(135deg, #11998e, #38ef7d);
                     font-family: 'Arial', sans-serif;
                     display: flex;
                     justify-content: center;
@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
                 h1 {
                     color: white;
                     font-size: 3.5em;
-                    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
                 }
             </style>
         </head>
