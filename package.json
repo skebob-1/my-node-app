@@ -1,6 +1,7 @@
 {
   "name": "my-node-app",
   "version": "1.0.0",
+  "description": "Node.js приложение",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
