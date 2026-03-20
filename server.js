@@ -2,62 +2,53 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Мидлвар для статических файлов (если нужны будут)
-app.use(express.static('public'));
-
 // Главная страница
 app.get('/', (req, res) => {
     res.send(`
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Node.js проект</title>
+            <title>Главная</title>
             <style>
                 body {
                     margin: 0;
                     height: 100vh;
-                    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-                    font-family: 'Arial', sans-serif;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    font-family: Arial, sans-serif;
                     display: flex;
+                    flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    flex-direction: column;
                 }
-                
                 h1 {
-                    color: #2d3436;
-                    font-size: 3.5em;
-                    text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
-                    margin-bottom: 20px;
+                    color: white;
+                    font-size: 3em;
                 }
-                
                 .nav {
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
+                    margin-top: 50px;
                 }
-                
                 .nav a {
-                    color: #2d3436;
-                    text-decoration: none;
-                    margin-left: 20px;
+                    color: white;
+                    margin: 0 20px;
                     font-size: 1.2em;
-                    padding: 10px;
-                }
-                
-                .nav a:hover {
-                    background: rgba(255,255,255,0.3);
+                    text-decoration: none;
+                    padding: 10px 20px;
+                    border: 2px solid white;
                     border-radius: 5px;
+                }
+                .nav a:hover {
+                    background: white;
+                    color: #667eea;
                 }
             </style>
         </head>
         <body>
+            <h1>Я изучаю NODE.JS в JAVASCRIPT!</h1>
             <div class="nav">
                 <a href="/">Главная</a>
                 <a href="/about">О техникуме</a>
                 <a href="/contact">Контакты</a>
             </div>
-            <h1>Я изучаю NODE.JS в JAVASCRIPT!</h1>
         </body>
         </html>
     `);
@@ -74,47 +65,39 @@ app.get('/about', (req, res) => {
                 body {
                     margin: 0;
                     min-height: 100vh;
-                    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-                    font-family: 'Arial', sans-serif;
-                    padding: 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    font-family: Arial, sans-serif;
+                    color: white;
+                    padding: 50px;
                 }
-                
-                .nav {
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                }
-                
-                .nav a {
-                    color: #2d3436;
-                    text-decoration: none;
-                    margin-left: 20px;
-                    font-size: 1.2em;
-                    padding: 10px;
-                }
-                
-                .nav a:hover {
-                    background: rgba(255,255,255,0.3);
-                    border-radius: 5px;
-                }
-                
                 .container {
                     max-width: 800px;
-                    margin: 50px auto;
-                    background: rgba(255,255,255,0.9);
-                    padding: 30px;
+                    margin: 0 auto;
+                    background: rgba(255,255,255,0.1);
+                    padding: 40px;
                     border-radius: 10px;
-                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
                 }
-                
                 h1 {
-                    color: #2d3436;
-                    margin-bottom: 20px;
+                    font-size: 2.5em;
                 }
-                
                 p {
-                    color: #555;
+                    font-size: 1.2em;
                     line-height: 1.6;
+                }
+                .nav {
+                    margin-bottom: 30px;
+                }
+                .nav a {
+                    color: white;
+                    margin-right: 20px;
+                    text-decoration: none;
+                    padding: 5px 10px;
+                    border: 1px solid white;
+                    border-radius: 3px;
+                }
+                .nav a:hover {
+                    background: white;
+                    color: #667eea;
                 }
             </style>
         </head>
@@ -126,14 +109,14 @@ app.get('/about', (req, res) => {
             </div>
             <div class="container">
                 <h1>О техникуме</h1>
-                <p>Наш техникум готовит специалистов по Node.js и современным веб-технологиям. Мы обучаем студентов практическим навыкам разработки серверных приложений, работы с базами данных и создания API.</p>
-                <p>Программа обучения включает:</p>
+                <p>Наш техникум готовит специалистов по Node.js и современным веб-технологиям. Мы обучаем студентов практическим навыкам разработки серверных приложений.</p>
+                <p>Программа обучения:</p>
                 <ul>
-                    <li>Основы JavaScript</li>
-                    <li>Node.js и Express</li>
-                    <li>Работа с базами данных (MySQL)</li>
-                    <li>Создание REST API</li>
-                    <li>Деплой приложений</li>
+                    <li>JavaScript</li>
+                    <li>Node.js</li>
+                    <li>Express</li>
+                    <li>MySQL</li>
+                    <li>REST API</li>
                 </ul>
             </div>
         </body>
@@ -152,62 +135,44 @@ app.get('/contact', (req, res) => {
                 body {
                     margin: 0;
                     min-height: 100vh;
-                    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-                    font-family: 'Arial', sans-serif;
-                    padding: 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    font-family: Arial, sans-serif;
+                    color: white;
+                    padding: 50px;
                 }
-                
-                .nav {
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                }
-                
-                .nav a {
-                    color: #2d3436;
-                    text-decoration: none;
-                    margin-left: 20px;
-                    font-size: 1.2em;
-                    padding: 10px;
-                }
-                
-                .nav a:hover {
-                    background: rgba(255,255,255,0.3);
-                    border-radius: 5px;
-                }
-                
                 .container {
                     max-width: 600px;
-                    margin: 50px auto;
-                    background: rgba(255,255,255,0.9);
-                    padding: 30px;
+                    margin: 0 auto;
+                    background: rgba(255,255,255,0.1);
+                    padding: 40px;
                     border-radius: 10px;
-                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
                 }
-                
                 h1 {
-                    color: #2d3436;
-                    margin-bottom: 30px;
+                    font-size: 2.5em;
                 }
-                
-                .contact-info {
-                    margin: 20px 0;
+                .info {
+                    margin: 30px 0;
+                    font-size: 1.2em;
                 }
-                
-                .contact-item {
+                .info p {
                     margin: 15px 0;
                     padding: 10px;
-                    border-bottom: 1px solid #eee;
+                    border-bottom: 1px solid rgba(255,255,255,0.3);
                 }
-                
-                .contact-item strong {
-                    color: #2d3436;
-                    width: 100px;
-                    display: inline-block;
+                .nav {
+                    margin-bottom: 30px;
                 }
-                
-                .contact-item span {
-                    color: #555;
+                .nav a {
+                    color: white;
+                    margin-right: 20px;
+                    text-decoration: none;
+                    padding: 5px 10px;
+                    border: 1px solid white;
+                    border-radius: 3px;
+                }
+                .nav a:hover {
+                    background: white;
+                    color: #667eea;
                 }
             </style>
         </head>
@@ -219,23 +184,11 @@ app.get('/contact', (req, res) => {
             </div>
             <div class="container">
                 <h1>Контакты</h1>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <strong>Email:</strong>
-                        <span>info@technical.ru</span>
-                    </div>
-                    <div class="contact-item">
-                        <strong>Телефон:</strong>
-                        <span>+7 (999) 123-45-67</span>
-                    </div>
-                    <div class="contact-item">
-                        <strong>Адрес:</strong>
-                        <span>г. Москва, ул. Программистов, д. 42</span>
-                    </div>
-                    <div class="contact-item">
-                        <strong>Часы работы:</strong>
-                        <span>Пн-Пт: 9:00 - 18:00</span>
-                    </div>
+                <div class="info">
+                    <p><strong>Email:</strong> info@technical.ru</p>
+                    <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+                    <p><strong>Адрес:</strong> г. Москва, ул. Программистов, д. 42</p>
+                    <p><strong>Часы работы:</strong> Пн-Пт 9:00-18:00</p>
                 </div>
             </div>
         </body>
@@ -245,7 +198,4 @@ app.get('/contact', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`✅ Сервер запущен на порту ${PORT}`);
-    console.log(`🌐 Главная: http://localhost:${PORT}`);
-    console.log(`🌐 О техникуме: http://localhost:${PORT}/about`);
-    console.log(`🌐 Контакты: http://localhost:${PORT}/contact`);
 });
